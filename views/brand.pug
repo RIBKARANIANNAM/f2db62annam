@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  - var results = [{"BrandName":"nike","Slogan":"good quality","Price":10},{"BrandName":"jockey","Slogan":"no compromise on quality","Price":10},{"BrandName":"puma","Slogan":"choose good","Price":20}];
+  div(class="container-fluid")
+    div(class="row")
+    each item in results
+      div(class="col-sm-2" width="215px") BrandName:#{item.BrandName}      #Slogan:#{item.Slogan}    #Price:#{item.Price}
+  br
+  div(class="container-fluid")
+    div(class="row")
+    - for(var i=0;i<results.length;i++) {
+        div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{results[i].BrandName}
+    -}
+  script. 
+    function buy(indexNum) {
+      alert(`You purchased item ${indexNum}`);
+    }
