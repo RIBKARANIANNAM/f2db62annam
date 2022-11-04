@@ -1,11 +1,7 @@
-# f2wb62annam
+# f2db62annam
 Generating Web page
-[My Render Link](https://f2wb62annam.onrender.com)
-My class Name is brands.
+
+Mongo data base.
 
 
-Brands
-- BrandName(string)
-- Brandslogan(string)
-- Brandprice(number)
 
