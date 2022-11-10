@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - var results = [{"BrandName":"nike","Slogan":"good quality","Price":10},{"BrandName":"jockey","Slogan":"no compromise on quality","Price":10},{"BrandName":"puma","Slogan":"choose good","Price":20}];
+  - var results = results ;
   div(class="container-fluid")
     div(class="row")
     each item in results
