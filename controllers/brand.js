@@ -13,12 +13,19 @@ exports.brand_list = async function(req, res) {
 }; 
  
  
-// for a specific Costume. 
-exports.brand_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: brand detail: ' + req.params.id); 
-}; 
+// for a specific brand.
+exports.brand_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await Brand.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+   };
  
-// Handle Costume create on POST. 
+// Handle brand create on POST. 
 exports.brand_create_post = async function(req, res) { 
     console.log(req.body) 
     let document = new Brand(); 
@@ -46,10 +53,25 @@ exports.brand_delete = function(req, res) {
     res.send('NOT IMPLEMENTED: brand delete DELETE ' + req.params.id); 
 }; 
  
-// Handle Costume update form on PUT. 
-exports.brand_update_put = function(req, res) { 
-    res.send('NOT IMPLEMENTED: brand update PUT' + req.params.id); 
-}; 
+// Handle brand update form on PUT.
+exports.brand_update_put = async function(req, res) {
+ console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+ try {
+ let toUpdate = await Brand.findById( req.params.id)
+ // Do updates of properties
+ if(req.body.BrandName)
+ toUpdate.BrandName = req.body.BrandName;
+ if(req.body.Slogan) toUpdate.Slogan = req.body.Slogan;
+ if(req.body.Price) toUpdate.Price = req.body.Price;
+ let result = await toUpdate.save();
+ console.log("Sucess " + result)
+ res.send(result)
+ } catch (err) {
+ res.status(500)
+ res.send(`{"error": ${err}: Update for id ${req.params.id}
+failed`);
+ }
+};
 
 // VIEWS 
 // Handle a show all view 
