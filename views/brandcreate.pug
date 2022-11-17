@@ -9,11 +9,11 @@ block content
     input#BrandName(type='text', name='BrandName')
   div.form-group
     label.brandAttr(for='Slogan') Slogan
-    input#Slogan(type='number', name='Slogan')
+    input#Slogan(type='text', name='Slogan')
   div.form-group
     label.brandAttr(for='Price') Price
-    input#Price(type='text', name='Price')
-  
+    input#Price(type='number', name='Price')
+  input(type="submit") 
  script.
     document.forms['brandForm'].addEventListener('submit', (event) => {
      event.preventDefault();

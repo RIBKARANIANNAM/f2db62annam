@@ -1,28 +1,25 @@
 extends layout
-
-block content 
-  h1= title 
-  if (toShow == null) 
-    h2 No instance to display 
-  else 
-    - let Brandid = toShow._id
-    - let BrandName = toShow.BrandName 
-    - let Slogan = toShow.Slogan 
+block content
+ h1= title
+ if (toShow == null)
+    h2 No instance to Show (or) The instance selected is not in the collection.
+ else
+    - let brandid = toShow._id
+    - let BrandName = toShow.BrandName
+    - let Slogan  = toShow.Slogan
     - let Price = toShow.Price
     
-    div 
-      div.row 
-        div(class='brandAttr mr-3') Brand ID is: 
-        div #{Brandid} 
-        div 
-      div.row 
-        div(class='brandName  mr-3') BrandName  is: 
-        div #{BrandName }
-      div.row 
-        div(class='brandAttr mr-3') Slogan  is: 
-        div #{Slogan} 
-      div.row 
-        div(class='brandAttr mr-3') Price is: 
-        div #{Price} 
-      
-       
+    div
+        div.row
+            div(class='brandAttr mr-3') Brand ID is:
+            div #{brandid}
+        div.row
+            div(class='brandAttr mr-3') BrandName is:
+            div #{BrandName}
+        div.row
+            div(class='brandAttr mr-3') Slogan  is:
+            div #{Slogan}
+        div.row
+            div(class='brandAttr mr-3') Price is:
+            div #{Price}
+        

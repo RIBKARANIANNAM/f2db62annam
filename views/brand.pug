@@ -2,16 +2,16 @@ extends layout
 
 block content
   h1= title
-  - var results = results ;
+  - var brand =results;
   div(class="container-fluid")
     div(class="row")
-    each item in results
-      div(class="col-sm-2" width="215px") BrandName:#{item.BrandName}      #Slogan:#{item.Slogan}    #Price:#{item.Price}
+      each item in brand
+        div(class="col-sm-2" width="215px") BrandName:#{item.BrandName}, Slogan:#{item.Slogan}, Price:#{item.Price}
   br
   div(class="container-fluid")
     div(class="row")
-    - for(var i=0;i<results.length;i++) {
-        div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{results[i].BrandName}
+    - for(var i=0;i<brand.length;i++) {
+        div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{brand[i].BrandName}
     -}
   script. 
     function buy(indexNum) {
