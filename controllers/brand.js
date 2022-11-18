@@ -47,7 +47,7 @@ res.send('NOT IMPLEMENTED: brand update PUT' + req.params.id);
 // Handle a show all view
 exports.brand_view_all_Page = async function(req, res) {
     try{
-    thebrand = await brand.find();
+    thebrands = await brand.find();
     res.render('brand', { title: 'brand Search Results', results: thebrands });
     }
     catch(err){

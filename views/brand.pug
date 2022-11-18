@@ -4,23 +4,26 @@ block content
   h1= title
   - var brand =results;
   div(class="container-fluid")
-    div(class="row m-1")
-        each items, index in pastries
-            - let destination = `dispatch(\"/resource/update?id=${items._id}\")`
-            div(class="col-sm-2", class="m-1", style='font-family: "Lucida Console", "Courier New", monospace;color:purple') Item #{items.BrandName}(#{items.Slogan}) is #{items.Price}
-            button.btn( class="btn-primary ml-1" , onclick= destination) Update
-  
-  script.
+    div(class="row")
+      each item in brand
+        - let destination = `dispatch(\"/brand/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.BrandName}(#{item.Slogan}) is #{item.Price}
+         button.btn( class="btn-primary ml-1", onclick= destination) Update
+        //- //div(class="col-sm-2" width="215px") BrandName:#{item.BrandName}, Slogan:#{item.Slogan}, Price:#{item.Price}
+
+  //- br
+  //- div(class="container-fluid")
+  //-   div(class="row")
+  //-   - for(var i=0;i<brand.length;i++) {
+  //-       div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{brand[i].BrandName}
+  //-   -}
+  //- script. 
+  //-   function buy(indexNum) {
+  //-     alert(`You purchased item ${indexNum}`);
+  //-   }
+
+  script. 
     function dispatch(path){ 
       window.location.href=path 
-    }
-  br
-  div(class="container-fluid")
-    div(class="row")
-    - for(var i=0;i<brand.length;i++) {
-        div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{brand[i].BrandName}
-    -}
-  script. 
-    function buy(indexNum) {
-      alert(`You purchased item ${indexNum}`);
-    }
+    } 
+ 
