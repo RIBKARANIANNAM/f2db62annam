@@ -4,9 +4,16 @@ block content
   h1= title
   - var brand =results;
   div(class="container-fluid")
-    div(class="row")
-      each item in brand
-        div(class="col-sm-2" width="215px") BrandName:#{item.BrandName}, Slogan:#{item.Slogan}, Price:#{item.Price}
+    div(class="row m-1")
+        each items, index in pastries
+            - let destination = `dispatch(\"/resource/update?id=${items._id}\")`
+            div(class="col-sm-2", class="m-1", style='font-family: "Lucida Console", "Courier New", monospace;color:purple') Item #{items.BrandName}(#{items.Slogan}) is #{items.Price}
+            button.btn( class="btn-primary ml-1" , onclick= destination) Update
+  
+  script.
+    function dispatch(path){ 
+      window.location.href=path 
+    }
   br
   div(class="container-fluid")
     div(class="row")
