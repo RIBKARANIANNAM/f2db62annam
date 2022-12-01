@@ -16,7 +16,7 @@ block content
   form(id='brandForm', action= actionid, method="PUT")
     div.form-group
       label.brandAttr(for='BrandName') BrandName
-      input#BrandName(type='text', name='BrandName', value= BrandName)
+      input#BrandName(type='text', name='BrandName', value= BrandName, minlength='5', maxlength='20')
     div.form-group
       label.brandAttr(for='Slogan') Slogan
       input#Slogan(type='text', name='Slogan', value= Slogany )
